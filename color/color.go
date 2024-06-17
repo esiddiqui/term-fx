@@ -44,7 +44,7 @@ func Foreground256(fg int, text string) string {
 	return sb.String()
 }
 
-// returns the foreground color esc sequence for the supplied color id
+// returns the foreground color esc sequence for the supplied color id (8 bit, 256 color)
 func get256Fg(id int) string {
 	var sb strings.Builder
 	sb.WriteString("38;5;")
@@ -52,7 +52,7 @@ func get256Fg(id int) string {
 	return text.Escp(sb.String())
 }
 
-// returns the background color esc sequence for the supplied color id
+// returns the background color esc sequence for the supplied color id (8 bit, 256 color)
 func get256Bg(id int) string {
 	var sb strings.Builder
 	sb.WriteString("48;5;")
