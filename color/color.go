@@ -130,6 +130,33 @@ func Foreground256(fg int, text string) string {
 	return sb.String()
 }
 
+// SetBackgroundRgb sets the r,g,b true-color background
+func SetBackgroundRgb(r, g, b int) {
+	// ESC[38;2;{r};{g};{b}m
+	var sb strings.Builder
+	sb.WriteString("48;2;")
+	sb.WriteString(strconv.Itoa(r))
+	sb.WriteString(";")
+	sb.WriteString(strconv.Itoa(g))
+	sb.WriteString(";")
+	sb.WriteString(strconv.Itoa(b))
+	print(text.Escp(sb.String()))
+	// var xsb strings.Builder
+	// xsb.WriteString()
+}
+
+// SetForegroundRgb sets the r,g,b true-color foreground
+func SetForegroundRgb(r, g, b int) {
+	var sb strings.Builder
+	sb.WriteString("38;2;")
+	sb.WriteString(strconv.Itoa(r))
+	sb.WriteString(";")
+	sb.WriteString(strconv.Itoa(g))
+	sb.WriteString(";")
+	sb.WriteString(strconv.Itoa(b))
+	print(text.Escp(sb.String()))
+}
+
 // returns the foreground color esc sequence for the supplied color id (8 bit, 256 color)
 func get256Fg(id int) string {
 	var sb strings.Builder

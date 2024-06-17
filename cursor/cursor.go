@@ -78,3 +78,40 @@ func Col(n int) {
 	sb.WriteString("G")
 	fmt.Print(text.EscPrefix(sb.String()))
 }
+
+// TODO fix this
+func On() {
+	fmt.Print("\x1b[[?25l")
+}
+
+// TODO fix this
+func Off() {
+	fmt.Print("\x1b[?25l")
+}
+
+// ClearDisplay clears everything on display viewport of the terminate
+func ClearDisplay() { fmt.Print(text.EscPrefix("2J")) }
+
+// ClearToEndScreen erases from cursor to end of screen
+func ClearToEndScreen() { fmt.Print(text.EscPrefix("0J")) }
+
+// ClearToStartScreen erases from cursor to start of screen
+func ClearToStartScreen() { fmt.Print(text.EscPrefix("1J")) }
+
+// Clear the screen
+func Clear() { fmt.Print(text.EscPrefix("2J")) }
+
+// Clear saved lines
+func ClearSavedLines() { fmt.Print(text.EscPrefix("3J")) }
+
+// Cls is a short hand for Clear
+func Cls() { Clear() }
+
+// ClearToEndOfLine erases from cursor to end of current line
+func ClearToEndOfLine() { fmt.Print(text.EscPrefix("0K")) }
+
+// ClearToStartOfLine ereases from cursor to beginning of current line
+func ClearToStartOfLine() { fmt.Print(text.EscPrefix("1K")) }
+
+// ClearLine erases the current line
+func ClearLine() { fmt.Print(text.EscPrefix("2K")) }

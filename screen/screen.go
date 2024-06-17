@@ -11,6 +11,8 @@ func ScreenMode320_200() {
 	fmt.Print(text.EscPrefix("=19h"))
 }
 
-func Clear() {
-	fmt.Print(text.EscPrefix("2J"))
-}
+// Clear the screen
+func Clear() { fmt.Print(text.EscPrefix("2J")) }
+
+// Cls is a short hand for Clear
+func Cls() { Clear() }
