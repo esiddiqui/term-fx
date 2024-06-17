@@ -15,8 +15,8 @@ const (
 	Bg256_Reset int = iota
 )
 
-// Color256 wraps the supplied text into 256 color background & foreground escape & reset sequences
-func Color256(bg, fg int, text string) string {
+// Apply256 wraps the supplied text into 8-bit (256-color) background & foreground escape & reset sequences
+func Apply256(bg, fg int, text string) string {
 	var sb strings.Builder
 	sb.WriteString(get256Bg(bg))
 	sb.WriteString(get256Fg(fg))
@@ -26,7 +26,8 @@ func Color256(bg, fg int, text string) string {
 	return sb.String()
 }
 
-func ColorBg256(bg int, text string) string {
+// Background256 wraps the supplied text with 8-bit (256-color) background & reset sequences
+func Background256(bg int, text string) string {
 	var sb strings.Builder
 	sb.WriteString(get256Bg(bg))
 	sb.WriteString(text)
@@ -34,7 +35,8 @@ func ColorBg256(bg int, text string) string {
 	return sb.String()
 }
 
-func ColorFg256(fg int, text string) string {
+// Foreground256 wraps the supplied text with 8-bit (256-color) foreground/font & reset sequenes
+func Foreground256(fg int, text string) string {
 	var sb strings.Builder
 	sb.WriteString(get256Fg(fg))
 	sb.WriteString(text)
