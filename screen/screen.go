@@ -3,7 +3,7 @@ package screen
 import (
 	"fmt"
 
-	"github.com/esiddiqui/term-fx/text"
+	"github.com/esiddiqui/tfx/text"
 )
 
 // ScreenMode320_200 sets the screen mode to 320x200 256-color

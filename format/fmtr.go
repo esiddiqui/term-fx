@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/esiddiqui/term-fx/text"
+	"github.com/esiddiqui/tfx/text"
 )
 
 // pad or trim the supplied to be max_len,

@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/esiddiqui/term-fx/text"
+	"github.com/esiddiqui/tfx/text"
 )
 
 const (

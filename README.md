@@ -1,4 +1,4 @@
-# terminal effects (term-fx)
+# terminal effects (tfx)
 
 create various terminal effects with ascii escape codes & other means. 
 
