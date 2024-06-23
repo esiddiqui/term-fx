@@ -110,7 +110,13 @@ func CliOutputTable[T any](results []T) error {
 		}
 		fmt.Println(sb.String())
 	}
-	fmt.Printf("%v items\n", len(results))
+
+	item := "items"
+	if len(results) == 1 {
+		item = "item"
+	}
+
+	fmt.Printf("(%v %v)\n", len(results), item)
 
 	return nil
 }
