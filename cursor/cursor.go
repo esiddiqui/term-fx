@@ -23,7 +23,7 @@ func Goto(line, col int) {
 	fmt.Print(text.EscPrefix(sb.String()))
 }
 
-// Up moves cursor by n lines
+// Up moves cursor up by n lines
 func Up(n int) {
 	var sb strings.Builder
 	sb.WriteString(strconv.Itoa(n))
@@ -31,7 +31,7 @@ func Up(n int) {
 	fmt.Print(text.EscPrefix(sb.String()))
 }
 
-// Down moves curso by n lines
+// Down moves cursor down by n lines
 func Down(n int) {
 	var sb strings.Builder
 	sb.WriteString(strconv.Itoa(n))
@@ -81,15 +81,17 @@ func Col(n int) {
 
 // TODO fix this
 func On() {
-	fmt.Print("\x1b[[?25l")
+	// ESC[?25h
+	fmt.Print(text.EscPrefix("?25h"))
 }
 
 // TODO fix this
 func Off() {
-	fmt.Print("\x1b[?25l")
+	// ESC[?25l
+	fmt.Print(text.EscPrefix("?25l"))
 }
 
-// ClearDisplay clears everything on display viewport of the terminate
+// ClearDisplay clears everything on display viewport of the terminal
 func ClearDisplay() { fmt.Print(text.EscPrefix("2J")) }
 
 // ClearToEndScreen erases from cursor to end of screen
@@ -98,14 +100,14 @@ func ClearToEndScreen() { fmt.Print(text.EscPrefix("0J")) }
 // ClearToStartScreen erases from cursor to start of screen
 func ClearToStartScreen() { fmt.Print(text.EscPrefix("1J")) }
 
-// Clear the screen
-func Clear() { fmt.Print(text.EscPrefix("2J")) }
-
-// Clear saved lines
-func ClearSavedLines() { fmt.Print(text.EscPrefix("3J")) }
+// Clear the screen; alias for ClearDisplay
+func Clear() { ClearDisplay() }
 
 // Cls is a short hand for Clear
 func Cls() { Clear() }
+
+// Clear saved lines
+func ClearSavedLines() { fmt.Print(text.EscPrefix("3J")) }
 
 // ClearToEndOfLine erases from cursor to end of current line
 func ClearToEndOfLine() { fmt.Print(text.EscPrefix("0K")) }
